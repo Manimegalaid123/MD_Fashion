@@ -12,7 +12,7 @@ function Login(){
     setFormData({...formData,
       [e.target.id]:e.target.value
     })
-    console.log(formData)
+    
   }
 
  async function handleOnSubmit(e){
@@ -24,6 +24,7 @@ function Login(){
   const URL="http://localhost:8888/api/auth/login"
   const response=await fetch(URL,{
     method:"POST",
+    credentials:"include",
     headers:{
       "Content-type":"application/json",
     },

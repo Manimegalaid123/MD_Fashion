@@ -1,8 +1,6 @@
 const bcrypt = require('bcrypt')
 const User = require('../models/User.js')
 const jwt=require('jsonwebtoken')
-const cookie=require('cookie')
-
 async function signup(req, res) {
     try{
     const { name, email, phone, password, confirmPassword } = req.body;
@@ -24,12 +22,9 @@ async function signup(req, res) {
         success:false,
         message:"password doesn't match"})
     }
-  
-
     const hashedpassword = await bcrypt.hash(password, 10)
     const user =  await User.create({ name, email, phone, password: hashedpassword, role: "Customer" })
     const userResponse=user.toObject()
-    
     delete userResponse.password;
     const token=jwt.sign(
         {
@@ -37,11 +32,15 @@ async function signup(req, res) {
         },
         process.env.JWT
     )
-      res.cookie(token)
+      res.cookie("token",token,{
+        httpOnly:true,
+        secure:false,
+        sameSite:"lax"
+      })
     return res.status(201).json({
         success:true,
         userResponse,
-        token,
+    
         message:"sucessfully created"})
 
 }catch(e){
@@ -74,8 +73,12 @@ async function login(req, res) {
      const token=jwt.sign({
         userId:isUser._id,role:isUser.role
     },process.env.JWT)
-    res.cookie("token",token)
-    return res.status(200).json({  success:true,token,message:"login successfully"})
+    res.cookie("token",token,{
+        httpOnly:true,
+        secure:false,
+        smaeSite:"lax"
+    })
+    return res.status(200).json({  success:true,message:"login successfully"})
     
 }catch(e){
     return res.status(500).json(

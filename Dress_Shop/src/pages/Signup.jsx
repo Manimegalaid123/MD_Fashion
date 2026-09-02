@@ -34,6 +34,7 @@ function handleOnChange(e){
     const URL="http://localhost:8888/api/auth/signup"
     const res= await fetch(URL,{
         method:"POST",
+        credentials:"include",
         headers:{
             "Content-type":"application/json"
         },
