@@ -1,0 +1,53 @@
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+        align-items: center;
+    padding: 15px 40px;
+   
+  
+ 
+   
+
+}
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: white;
+  
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #222;
+}
+.brand img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.brand h1 {
+  margin: 0;
+  font-size: 24px;
+}
+.navlink{
+    display:flex;
+    gap:30px;  
+}
+.navlink a {
+  color: #222;
+  text-decoration: none;
+   padding: 12px;
+   transition: all ease-in 0.2s;
+}
+
+.navlink a:hover {
+  color:black;
+  background:orange;
+  border-radius: 5px;
+  transform: translateX(-10px);
+ 
+}

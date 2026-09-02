@@ -1,0 +1,171 @@
+.hero {
+  background-image: url("/hero.jpg");
+  background-size: cover;
+  background-position: right center;
+  background-repeat: no-repeat;
+
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.hero-content{
+
+  padding-left:50px;
+   max-width: 500px;
+}
+.hero-content h1{
+    font-size:60px;
+    font-weight:700;
+    max-width: 450px;
+    line-height:1.1;
+    margin-bottom:20px ;
+    color:#fff
+}
+.hero-content p{
+    
+    font-size:18px;
+    font-weight:400;
+    max-width: 400px;
+    line-height:1.6;
+    margin-bottom: 25px;;
+ color:#fff
+}
+.hero-content button{
+    
+    padding:12px 25px;
+    background:rgb(237, 180, 76);
+    border:none;
+    font-size:16px;
+    font-weight:600;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+  
+
+}
+.hero-content button:hover{
+    background:orange;
+      transform: translateX(-5px);
+}
+.category-container{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+      gap: 25px;
+}
+.categories {
+  padding: 70px 8%;
+  background: #fff;
+}
+.category-heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.category-heading h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.category-heading p {
+  color: #777;
+  font-size: 16px;
+}
+.category-card {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.category-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  transition: transform 0.4s ease;
+}
+.category-card:hover img {
+  transform: scale(1.05);
+}
+.category-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 25px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+
+.category-content h3 {
+  font-size: 25px;
+  margin: 0 0 15px;
+}
+.category-content button {
+  padding: 10px 22px;
+  border: none;
+  background: white;
+  color: #222;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.category-content button:hover {
+  background: #222;
+  color: white;
+}
+
+.why-choose{
+ padding: 70px 8%;
+  background: #f8f8f8;
+}
+.why-heading{
+     text-align: center;
+  margin-bottom: 45px;
+}
+.why-heading h2{
+   font-size: 36px;
+  margin-bottom: 10px;
+  color: #222;
+}
+.why-heading p{
+   color: #777;
+  font-size: 16px;
+}
+.why-container{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap:25px;
+}
+.why-card{
+    padding:35px 20px;
+    border-radius: 8px;
+  
+    background:white;
+    text-align: center;
+    transition:transform 0.3s ease,box-shadow 0.3s ease;
+}
+.why-card:hover{
+    transform:translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+.why-icon {
+  font-size: 38px;
+  margin-bottom: 15px;
+}
+.why-card h3{
+    font-size:20px;
+     margin-bottom: 10px;
+  color: #222;
+
+}
+.why-card p {
+  color: #777;
+  line-height: 1.6;
+  font-size: 14px;
+}
