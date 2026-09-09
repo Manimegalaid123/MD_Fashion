@@ -10,15 +10,13 @@ return(
           <img src={logo} alt="MD Fashion logo" />
           <h1>MD_Fashion</h1>
         </Link>
-        
-            
-
         <div className="navlink-container">
             <div className="navlink">
             <Link to="/">Home</Link>
-            <Link to="/cart">Cart</Link>
+            <Link to="/product">Product</Link>
             <Link to="/signup">Signup</Link>
             <Link to="/login">Login</Link>
+            <Link to="/cart">Cart</Link>
             </div>
         </div>
         </div>

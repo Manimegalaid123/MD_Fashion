@@ -156,3 +156,28 @@ width:100%;
 .form-group select:focus {
     border-color: #222;
 }
+.password-container {
+    position: relative;
+    width: 100%;
+}
+
+.password-container input {
+    width: 100%;
+    padding: 12px 70px 12px 15px;
+    box-sizing: border-box;
+}
+
+.password-toggle {
+    position: absolute !important;
+    right: 0px;
+    top: 40%;
+    transform: translateY(-50%);
+
+    width: auto !important;
+    padding: 5px 8px;
+    border: none;
+    background: transparent !important;
+    color: #333 !important;
+    cursor: pointer;
+    font-size: 14px;
+}

@@ -1,5 +1,5 @@
 const mongoose=require('mongoose')
-const dotenv=require('dotenv')
+
 async function connectDb(){
 try{
     await mongoose.connect(process.env.MONGODB_URL)

@@ -23,24 +23,14 @@ async function signup(req, res) {
         message:"password doesn't match"})
     }
     const hashedpassword = await bcrypt.hash(password, 10)
-    const user =  await User.create({ name, email, phone, password: hashedpassword, role: "Customer" })
+    const user =  await User.create({ name, email, phone, password: hashedpassword})
     const userResponse=user.toObject()
     delete userResponse.password;
-    const token=jwt.sign(
-        {
-            userId:user._id,role:user.role
-        },
-        process.env.JWT
-    )
-      res.cookie("token",token,{
-        httpOnly:true,
-        secure:false,
-        sameSite:"lax"
-      })
+
     return res.status(201).json({
         success:true,
         userResponse,
-    
+      
         message:"sucessfully created"})
 
 }catch(e){
@@ -63,7 +53,7 @@ async function login(req, res) {
         message:"please create a account"})
     }
     const isMatch = await bcrypt.compare(password,isUser.password)
-   
+    const userResponse=isUser.toObject()
     if (!isMatch) {
         return res.status(400).json({
         success:false,
@@ -76,9 +66,9 @@ async function login(req, res) {
     res.cookie("token",token,{
         httpOnly:true,
         secure:false,
-        smaeSite:"lax"
+        sameSite:"lax"
     })
-    return res.status(200).json({  success:true,message:"login successfully"})
+    return res.status(200).json({  success:true,userResponse,message:"login successfully"})
     
 }catch(e){
     return res.status(500).json(

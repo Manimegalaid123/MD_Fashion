@@ -1,6 +1,12 @@
+import { useNavigate } from 'react-router-dom';
 import './Home.css'
 import { FaTruck, FaStar, FaExchangeAlt, FaLock } from "react-icons/fa";
+
 function Home(){
+ const navigate = useNavigate()
+  function Product(){
+navigate('/product')
+  }
     return(
         <>
       
@@ -8,7 +14,7 @@ function Home(){
         <div className="hero-content">
            <h1>Find Your Perfect Style</h1>
           <p>Discover elegant and stylish dresses for every occasion.</p>
-              <button>Shop Now</button>
+              <button onClick={Product}>Shop Now</button>
               
             </div>   
       </section>
