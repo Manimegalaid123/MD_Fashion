@@ -8,6 +8,8 @@ import UserProfile from "../pages/UserProfile"
 import Product from "../pages/Product"
 import Cart from "../pages/Cart"
 import AddProduct from "../pages/admin/AddProduct"
+import ManageProduct from "../pages/admin/ManageProduct"
+import EditProduct from "../pages/admin/EditProduct"
 function AppRouter(){
 return(
     <BrowserRouter>
@@ -21,6 +23,8 @@ return(
         <Route path="/product" element={<Product/>}/>
         <Route path="/cart" element={<Cart/>}/>
         <Route path='/addProduct' element={<AddProduct/>}/>
+        <Route path='/manageProduct' element={<ManageProduct/>}/>
+        <Route path='/editproduct/:id' element={<EditProduct/>}/>
     </Routes>
     </BrowserRouter>
 )

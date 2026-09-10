@@ -1,15 +1,13 @@
 import { useNavigate } from "react-router-dom"
-
+import {useState,useEffect} from 'react'
 function ManageProduct(){
     const navigate=useNavigate()
-    const [product,setProduct]=useState({
-
-    })
+    const [product,setProduct]=useState([])
     function handleaddProduct(){
     navigate("/addproduct")
     }
     function handleEdit(pid){
-        navigate(`EditProduct/${pid}`)
+        navigate(`/editproduct/${pid}`)
     }
     async function fetchItems(){
         try{
@@ -31,7 +29,17 @@ catch(e){
 
    async function handleProductdelete(pid){
     try{
-  const URL=`http://localhost:8888/api/products/deleteProduct${pid}`
+  const URL=`http://localhost:8888/api/products/deleteProduct/${pid}`
+  const response=await fetch(URL,{
+    method:"DELETE",
+    credentials:"include"
+  })
+  const data=await response.json()
+  if(!response.ok){
+    console.log(data.message)
+  }
+  console.log(data.message)
+  fetchItems()
     }catch(e){
         console.log(e.message)
     }
@@ -47,8 +55,7 @@ catch(e){
   
 {product.length!==0? (
 <div className="product-cart">
-    {
-        product.map((item)=>(
+    {product.map((item)=>(
            <div className="product-card" key={item._id}>
             <div className="product-image">
                 <img src={`http://localhost:8888${item.image}`} alt={item.name} loading="lazy"/>
@@ -64,8 +71,8 @@ catch(e){
                                 <p>Stock: {item.stock}</p>
                                 <p>Category: {item.category}</p>
                 </div>
-                <button className="edit"  onClick={handleEdit(item._id)}>edit</button>
-                <button Onclick={handleProductdelete(item._id)} > delete</button>
+                <button className="edit"  onClick={()=>{handleEdit(item._id)}}>edit</button>
+                <button onClick={()=>{handleProductdelete(item._id)}} > delete</button>
             </div> 
         ))
     }

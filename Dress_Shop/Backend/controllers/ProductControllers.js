@@ -106,14 +106,27 @@ async function deleteProduct(req,res){
 async function updateProduct(req,res){
 try{
     const id=req.params.id
- const {name,price,description,stock,image, category}=req.body
- const product=await Product.findByIdAndUpdate(id,{name,price,description,stock,image, category},{new:true})
+ const {name,price,description,stock,category}=req.body
+const updateData={
+    name,price,description,stock,category
+}
+if(req.file){
+    updateData.image=`/uploads/${req.file.filename}`
+}
+    if(!name||!price||!description||stock===undefined||!category){
+        return res.status(404).json({
+            success:false,
+            message:"enter the data"
+        })
+        
+    } 
+ const product=await Product.findByIdAndUpdate(id,updateData,{ returnDocument: "after" })
   if(!product){
          return res.status(400).json({
             success:false,
             message:"produt Not found"
         })}
-     
+    
          return res.status(200).json({
             success:true,
             message:"product updated success"

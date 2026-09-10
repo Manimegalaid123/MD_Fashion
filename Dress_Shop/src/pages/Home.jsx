@@ -29,21 +29,21 @@ navigate('/product')
     <img src="/image2.jpg"/>
           <div className="category-content">
   <h3>Women</h3>
-        <button>Shop Now</button>
+        <button onClick={()=>{ navigate('Product')}}>Shop Now</button>
   </div>
   </div>
   <div className="category-card">
     <img src="/men.jpg"/>
           <div className="category-content">
   <h3>Men</h3>
-        <button>Shop Now</button>
+        <button onClick={()=>{ navigate('Product')}}>Shop Now</button>
   </div>
   </div>
   <div className="category-card">
     <img src="/kids.jpg"/>
           <div className="category-content">
   <h3>kids</h3>
-        <button>Shop Now</button>
+        <button onClick={()=>{ navigate('Product')}}>Shop Now</button>
   </div>
   </div>
 </div>

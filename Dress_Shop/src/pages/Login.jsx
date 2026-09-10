@@ -47,7 +47,7 @@ return
     console.log("Navigating to UserProfile");
   navigate("/userProfile");
 } else if (data.userResponse.role === "admin") {
-  navigate("/AdminDashboard");
+  navigate("/adminDashboard");
 }
   setFormData({
     email:"",
