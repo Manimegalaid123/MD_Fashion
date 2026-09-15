@@ -10,6 +10,8 @@ import Cart from "../pages/Cart"
 import AddProduct from "../pages/admin/AddProduct"
 import ManageProduct from "../pages/admin/ManageProduct"
 import EditProduct from "../pages/admin/EditProduct"
+import Order from "../pages/order/Order"
+import CreateOrder from "../pages/order/createOrder"
 function AppRouter(){
 return(
     <BrowserRouter>
@@ -25,6 +27,9 @@ return(
         <Route path='/addProduct' element={<AddProduct/>}/>
         <Route path='/manageProduct' element={<ManageProduct/>}/>
         <Route path='/editproduct/:id' element={<EditProduct/>}/>
+        <Route path='/order' element={<Order/>}/>
+        <Route path='/createOrder'element={<CreateOrder/>}/>
+
     </Routes>
     </BrowserRouter>
 )

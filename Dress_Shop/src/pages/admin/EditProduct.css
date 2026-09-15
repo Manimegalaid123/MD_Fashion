@@ -1,0 +1,90 @@
+/* Main page */
+.container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    background-color: #f5f5f5;
+}
+
+/* Form box */
+.form-container {
+    width: 100%;
+    max-width: 550px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Form */
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Inputs and textarea */
+.form input,
+.form textarea,
+.form select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    outline: none;
+    font-family: inherit;
+}
+
+/* Text input focus */
+.form input[type="text"]:focus,
+.form input[type="number"]:focus,
+.form textarea:focus,
+.form select:focus {
+    border-color: #222;
+}
+
+/* File input */
+.form input[type="file"] {
+    padding: 10px;
+    background-color: #fafafa;
+    cursor: pointer;
+}
+
+/* Description */
+.form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Select */
+.form select {
+    background-color: white;
+    cursor: pointer;
+}
+
+/* Button */
+.form button {
+    padding: 13px;
+    border: none;
+    border-radius: 6px;
+    background-color: #222;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.form button:hover {
+    background-color: #444;
+}
+
+/* Product not found */
+.container p {
+    font-size: 18px;
+    color: #555;
+}

@@ -83,6 +83,10 @@ async function getProductById(req,res){
 async function deleteProduct(req,res){
   try{
     const id=req.params.id
+    await Cart.updateMany(
+    { "items.product": id },
+    { $pull: { items: { product: id } } }
+);
      const product=await Product.findByIdAndDelete(id)
      console.log(product)
     if(!product){

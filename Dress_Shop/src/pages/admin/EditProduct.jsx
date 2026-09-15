@@ -1,5 +1,6 @@
 import {useState,useEffect} from 'react'
 import {useParams} from 'react-router-dom'
+import './EditProduct.css'
 function EditProduct(){
     const [product,setProduct]=useState();
     const {id}=useParams();
@@ -58,6 +59,7 @@ const data=await response.json()
 if(!response.ok){
     console.log(data)
 }
+console.log(data.message)
     }catch(e){
         console.log(e.message)
     }
@@ -65,8 +67,8 @@ if(!response.ok){
         return(
 <>
 <div className='container'>
-    {product? ( <div>
-        <form className="form-group" onSubmit={updateProduct}>
+    {product? ( <div className='form-container'>
+        <form className="form" onSubmit={updateProduct}>
             <input type="file" id="image"  onChange={handleImage} />
             <input type='text' id="name" value={product.name} onChange={handleOnchange}/>
              <input type='Number' id="price" value={product.price} onChange={handleOnchange}/>

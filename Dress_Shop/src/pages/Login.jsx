@@ -1,8 +1,10 @@
 import {Link, useNavigate} from 'react-router-dom'
 import './Login.css'
 import {useEffect, useState} from 'react'
-
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 function Login(){
+  const { setUser } = useContext(AuthContext);
   const [formData,setFormData]=useState({
     email:"",
     password:""
@@ -39,8 +41,19 @@ return
 
     
   }
-  
+   const profile = await fetch(
+        "http://localhost:8888/api/user/profile",
+        {
+            credentials: "include"
+        }
+    );
 
+    const Data = await profile.json();
+
+    setUser(Data.User);
+
+    navigate("/");
+  
   console.log(data)
   setResponse(data.message)
  if (data.userResponse.role === "user") {

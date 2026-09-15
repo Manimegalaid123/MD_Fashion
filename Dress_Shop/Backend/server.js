@@ -16,10 +16,12 @@ const ProductRoutes=require('./routers/ProductRoutes.js')
 const authRoutes=require('./routers/authRoutes');
 const cartRoutes=require('./routers/cartRoutes.js')
 const authMiddleware=require('./middleware/authMiddleware')
+const orderRoutes=require('./routers/orderRoutes.js')
 app.use('/api/user',userRoutes)
 app.use('/api/auth',authRoutes)
 app.use('/api/products',ProductRoutes)
 app.use('/api/cart',authMiddleware,cartRoutes)
+app.use('/api/order',authMiddleware,orderRoutes)
 app.listen(process.env.PORT,()=>{
 console.log(`server running on port${process.env.PORT}`)
 })

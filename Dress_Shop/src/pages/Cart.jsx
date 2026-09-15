@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CgTrash } from "react-icons/cg";
 import './Cart.css'
+import CreateOrder from "./order/createOrder";
 function Cart() {
     const navigate=useNavigate();
     const [cart,setCart]=useState({items:[]})
@@ -106,7 +107,7 @@ return(
 
             <div className="cart-image">
                 <img
-                    src={item.product.image}
+                    src={`http://localhost:8888${item.product.image}`}
                     alt={item.product.name}
                     loading="lazy"
                 />
@@ -120,7 +121,15 @@ return(
                 <p className="description"> {item.product.description} </p>
                 </div>
   
-   
+                {item.product.stock === 0 ? (
+            <p>Out of stock</p>
+        ) : item.product.stock < item.quantity ? (
+            <p>
+                Only {item.product.stock} available
+            </p>
+        ) : (
+            <p>Available</p>
+        )}
                 <div className="cart-actions"> 
                     <div className="quantity-control">
                 <button className="quantity-btn" onClick={() => { handleIncrese( item.product._id ); }} > + </button>
@@ -138,6 +147,7 @@ return(
     </div>) }
  <div className="cart-total">
         <h3>Total Price: ₹{totalPrice}</h3>
+        <button onClick={()=>{navigate('/createOrder')}}>Order now</button>
     </div>
     </div>
 )
